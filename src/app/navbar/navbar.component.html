@@ -1,0 +1,42 @@
+<nav class="navbar flex-column" [class.colorfull]="menuClick">
+  <div class="header flex-column">
+    <a class="full-name flex-column" routerLink="">
+      <span class="name">Natalia</span>
+      <span class="surname">Tomkova</span>
+    </a>
+    <span class="profession">fashion stylist & consultant</span>
+    <app-lottie (isLoaded)="menuButtonInitialized()" class="menu-icon" (click)="menuClicked()" [loop]="false"
+                [autoPlay]="false"
+                [path]="'assets/animations/menuButton.json'" [lottieId]="'menuButton'"
+                width="62px"
+                height="62px"></app-lottie>
+  </div>
+  <div class="container flex-column" [@collapse]="!menuClick" (@collapse.start)="rollStart($event)" (@collapse.done)="rollDone($event)">
+    <div class="overflow-wrapper flex-column" [class.overflow]="isMenuRolled">
+      <div class="links flex-column">
+        <a class="link title" [routerLinkActiveOptions]="{exact: true}" routerLinkActive="active" routerLink="">Work</a>
+        <a class="link title" routerLinkActive="active" routerLink="contact">Contact</a>
+      </div>
+      <div class="social-media">
+        <a class="link" href="https://www.instagram.com/nattom_/" target="_blank">
+          <app-lottie (mouseenter)="hoverAnimation('instagramIcon')" class="icon" [loop]="false"
+                      [autoPlay]="false"
+                      [path]="'assets/animations/instagram.json'" [lottieId]="'instagramIcon'" width="40px"
+                      height="40px"></app-lottie>
+        </a>
+        <a class="link" href="https://www.facebook.com/natalia.tomkova.58" target="_blank">
+          <app-lottie (mouseenter)="hoverAnimation('facebookIcon')" class="icon" [loop]="false"
+                      [autoPlay]="false"
+                      [path]="'assets/animations/facebook.json'" [lottieId]="'facebookIcon'" width="40px"
+                      height="40px"></app-lottie>
+        </a>
+        <a class="link" routerLink="#">
+          <app-lottie (mouseenter)="hoverAnimation('twitterIcon')" class="icon" [loop]="false"
+                      [autoPlay]="false"
+                      [path]="'assets/animations/twitter.json'" [lottieId]="'twitterIcon'" width="40px"
+                      height="40px"></app-lottie>
+        </a>
+      </div>
+    </div>
+  </div>
+</nav>

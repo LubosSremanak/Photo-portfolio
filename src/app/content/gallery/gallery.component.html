@@ -1,0 +1,12 @@
+<div class="photos flex-column">
+  <div *ngFor="let i of imageTile.order" class="image-wrapper flex-row">
+    <img (click)="openSlideShow(i)" [src]="imageTile.imageUrl+i+imageTile.format" alt=""/>
+  </div>
+</div>
+
+<swiper *ngIf="openSlider" [navigation]="true" [slidesPerView]="1" [centeredSlides]="true"
+        class="slideshow" [initialSlide]="initialSlide">
+  <ng-template *ngFor="let i of imageTile.order"  swiperSlide>
+    <img class="swiper-lazy" [src]="imageTile.imageUrl+i+imageTile.format" alt=""/></ng-template>
+</swiper>
+<mat-icon (click)="openSlider=false" *ngIf="openSlider" class="close-icon">close</mat-icon>

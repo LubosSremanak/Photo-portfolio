@@ -1,0 +1,64 @@
+.contact {
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.form {
+  max-width: 400px;
+}
+
+.submit {
+  background-color: transparent;
+  border: none;
+  color: transparent;
+  padding: 0;
+  text-decoration: none;
+  display: flex;
+  justify-content: center;
+  width: fit-content;
+}
+
+.submit-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-left: 10px;
+}
+
+.send-button {
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+.send-button:hover {
+  transform: scale(1.1);
+}
+.validity-error {
+  color: #bf1a1a;
+  margin-top: -25px;
+  margin-left: 5px;
+  height: 18px;
+  font-size: 13px;
+}
+
+.important-field {
+  color: #bf1a1a;
+}
+
+label {
+  color: #333333;
+  font-weight: bold;
+  font-size: 15px;
+  font-style: normal;
+  line-height: 15px;
+  text-align: left;
+  text-transform: none;
+  margin-left: 5px;
+}
+
+@media (max-width: 600px) {
+  .container {
+    width: 80%;
+    justify-content: center;
+    margin-left: -21px;
+  }
+}
