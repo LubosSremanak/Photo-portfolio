@@ -4,26 +4,32 @@
     <form (ngSubmit)="sendMessage(data)" [formGroup]="data" class="form">
       <label>
         Name <span class="important-field">*</span>
-      </label><input #name formControlName="name" type="text" name="name" placeholder="Your name">
-      <div class="validity-error"><span *ngIf="!name.checkValidity()||!name.value">Required</span></div>
+      </label><input formControlName="name" type="text" name="name" placeholder="Your name..."
+                     [class.input-field-error]="isValid(name)&&message.errors?.required">
+
+      <div class="validity-error">
+        <span *ngIf="isValid(name)&&name.errors?.required">
+         Name is required.</span>
+      </div>
       <label>
         Email address <span class="important-field">*</span>
       </label>
-      <input #email type="email" formControlName="email" name="email" placeholder="Your email">
-      <div class="validity-error"><span *ngIf="!email.checkValidity()||!email.value">Invalid email address !</span>
+      <input type="email" formControlName="email" name="email" placeholder="Your email..."
+             [class.input-field-error]="isValid(email)&&(email.errors?.email||email.errors?.required)">
+      <div class="validity-error">
+        <span *ngIf="isValid(email)&&(email.errors?.email||email.errors?.required)">
+          This field must be a valid email address</span>
       </div>
       <label>
         Message <span class="important-field">*</span>
       </label>
-      <textarea #message formControlName="message" name="message" placeholder="Text me"></textarea>
-      <div class="validity-error"><span *ngIf="!message.checkValidity()||!message.value">Required</span></div>
+      <textarea formControlName="message" name="message" placeholder="Your message..."
+                [class.input-field-error]="isValid(message)&&message.errors?.required"></textarea>
+      <div class="validity-error">
+        <span *ngIf="isValid(message)&&message.errors?.required">Message is required.</span>
+      </div>
       <div class="submit-container">
-        <button class="submit">
-          <app-lottie class="send-button" [loop]="false"
-                      [autoPlay]="false"
-                      [path]="'assets/animations/sendButton.json'" [lottieId]="'sendButton'" width="150px"
-                      height="150px"></app-lottie>
-        </button>
+        <button class="submit">Submit</button>
       </div>
     </form>
   </div>

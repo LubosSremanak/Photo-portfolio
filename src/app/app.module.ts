@@ -22,6 +22,7 @@ import {ImageTileComponent} from './content/image-tile/image-tile.component';
 import {ArticlePatternComponent} from './content/articles/article-pattern/article-pattern.component';
 import {GalleryComponent} from './content/gallery/gallery.component';
 import {SwiperModule} from "swiper/angular";
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   declarations: [
@@ -50,7 +51,8 @@ import {SwiperModule} from "swiper/angular";
     }),
     ReactiveFormsModule,
     HttpClientModule,
-    SwiperModule
+    SwiperModule,
+    FontAwesomeModule
   ],
   providers: [],
   bootstrap: [AppComponent]

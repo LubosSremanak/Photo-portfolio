@@ -11,8 +11,6 @@
 .image-container img {
   width: 100%;
   height: 100%;
-  max-height: 512px;
-  max-width: 512px;
   object-fit: cover;
 }
 
@@ -51,26 +49,26 @@
 
 .image-container .about .title {
   color: rgb(34, 34, 34);
-  font-size: calc(12px + 1vw);
+  font-size: calc(12px + 1.5vw);
   font-style: normal;
-  font-weight: 700;
+  font-weight: 900;
   text-align: center;
   pointer-events: none;
   margin: 10px;
 }
 
 
-@media (max-width: 900px) {
-  .image-container .about .content {
-    font-size: 13px;
-  }
+/*@media (max-width: 900px) {*/
+/*  .image-container .about .content {*/
+/*    font-size: 13px;*/
+/*  }*/
 
-  .image-container .about .title {
-    font-size: 17px;
-  }
-}
+/*  .image-container .about .title {*/
+/*    font-size: 17px;*/
+/*  }*/
+/*}*/
 
-@media (max-width: 768px) {
+@media (max-width: 1040px) {
   .image-container img {
     width: 100%;
     height: 100%;
@@ -81,7 +79,7 @@
   }
 
   .image-container .about .title {
-    font-size: 23px !important;
+    font-size: 22px !important;
   }
 }
 
@@ -91,13 +89,13 @@
   }
 
   .image-container .about .title {
-    font-size: 23px !important;
+    font-size: 30px !important;
   }
 
   .image-container {
     margin: 0 0;
     width: 100%;
-    height: 100vw;
+    height: 97.8vw;
   }
 }
 

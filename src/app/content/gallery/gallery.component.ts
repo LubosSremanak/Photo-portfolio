@@ -39,7 +39,7 @@ export class GalleryComponent implements OnInit {
   }
 
   openSlideShow(i: number): void {
-    this.initialSlide = i-1;
+    this.initialSlide = i;
     this.openSlider = true;
   }
 }

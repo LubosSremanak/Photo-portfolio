@@ -1,7 +1,9 @@
 import {AfterViewInit, Component, ElementRef, HostListener, OnInit} from '@angular/core';
-import {collapseAnimation} from "angular-animations";
+import {collapseAnimation, hueRotateAnimation} from "angular-animations";
 import {LottieAnimationsService} from "../shared/lottie-animations/service/lottie-animations.service";
 import {NavigationEnd, Router} from "@angular/router";
+import {faInstagram, IconDefinition} from '@fortawesome/free-brands-svg-icons';
+import {faEnvelope} from "@fortawesome/free-solid-svg-icons";
 
 
 @Component({
@@ -13,16 +15,9 @@ import {NavigationEnd, Router} from "@angular/router";
   ]
 })
 export class NavbarComponent implements OnInit, AfterViewInit {
-  get isMenuRolling(): boolean {
-    return this._isMenuRolling;
-  }
-
-  set isMenuRolling(value: boolean) {
-    this._isMenuRolling = value;
-  }
-
-  readonly breakpoint: number = 750;
-
+  readonly breakpoint: number = 900;
+  readonly instagram: IconDefinition = faInstagram;
+  readonly email: IconDefinition = faEnvelope;
 
   constructor(private lottieService: LottieAnimationsService,
               private elementRef: ElementRef, private router: Router) {
@@ -34,14 +29,9 @@ export class NavbarComponent implements OnInit, AfterViewInit {
         this.menuClicked();
       }
     });
-
-  }
-
-  ngAfterViewInit(): void {
   }
 
   private _isMenuRolled: boolean;
-  private _isMenuRolling: boolean;
 
   get isMenuRolled(): boolean {
     return this._isMenuRolled;
@@ -51,8 +41,17 @@ export class NavbarComponent implements OnInit, AfterViewInit {
     this._isMenuRolled = value;
   }
 
-  private _menuClick: boolean;
+  private _isMenuRolling: boolean;
 
+  get isMenuRolling(): boolean {
+    return this._isMenuRolling;
+  }
+
+  set isMenuRolling(value: boolean) {
+    this._isMenuRolling = value;
+  }
+
+  private _menuClick: boolean;
 
   get menuClick(): boolean {
     return this._menuClick;
@@ -60,6 +59,9 @@ export class NavbarComponent implements OnInit, AfterViewInit {
 
   set menuClick(value: boolean) {
     this._menuClick = value;
+  }
+
+  ngAfterViewInit(): void {
   }
 
   ngOnInit(): void {

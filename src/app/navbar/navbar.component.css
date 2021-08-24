@@ -1,26 +1,22 @@
 .navbar {
   height: 100%;
-  margin-top: 30px;
+  margin-top: 10px;
   margin-right: 4vw;
-  padding: 20px;
-  width: fit-content;
-  justify-content: center;
-  align-items: center;
+  margin-left: 40px;
+  width: 100%;
+  justify-content: flex-start;
+  align-items: flex-start;
 }
 
 .navbar .header {
-  justify-content: center;
-  align-items: center;
+  justify-content: flex-start;
+  align-items: flex-start;
   width: 100%;
   margin-bottom: 20px;
 }
 
 .navbar .header .name {
-  margin-bottom: 20px;
-}
-
-.navbar .header .surname {
-
+  margin-right: 50px;
 }
 
 .navbar .header .profession {
@@ -30,19 +26,17 @@
   font-weight: 700;
   line-height: 30px;
   text-align: center;
-  margin-top: 15px;
+  margin: 3px 0 0 3px;
   color: var(--text-color);
 }
 
 .navbar .header :is(.name,.surname) {
-  font-size: 45px;
+  font-size: 50px;
   font-style: normal;
   font-weight: 700;
-  line-height: 30px;
+  line-height: 50px;
   padding: 0 0;
   text-transform: uppercase;
-  text-align: center;
-
 }
 
 .navbar .header .menu-icon {
@@ -55,34 +49,50 @@
 }
 
 .navbar :is(.container,.overflow-wrapper,.links) {
-  align-items: center;
+  align-items: flex-start;
   width: 100%;
+  margin-top: 10px;
 }
 
 .navbar .container .overflow-wrapper .links .link {
   color: var(--text-color);
   transition: color 0.3s ease;
-  font-size: 20px;
+  font-size: 18px;
   font-style: normal;
   margin-bottom: 10px;
+}
+
+.center-wrapper{
+  width: 100px;
+  display: flex;
+  justify-content: center;
 }
 
 .navbar .container .title {
   font-weight: 700;
   font-size: 18px;
-  margin-bottom: 20px;
-  margin-top: 25px;
 }
 
-.social-media .link .icon {
-  margin: 10px;
-}
 
 .active {
   color: #080808 !important;
 }
 
-@media only screen and (max-width: 750px) {
+.icon {
+  font-size: 20px;
+  transition: ease 0.2s;
+}
+
+.icon:hover {
+  color: var(--text-color);
+}
+
+.instagram {
+  margin-right: 10px;
+}
+
+
+@media only screen and (max-width: 900px) {
   .navbar {
     margin: 0 !important;
     padding: 0;
@@ -107,6 +117,8 @@
   }
 
   .navbar .header {
+    align-items: center;
+    justify-content: center;
     margin: 15px !important;
   }
 
@@ -117,8 +129,12 @@
   }
 
   .navbar .header .name {
-    margin-right: 10px;
-    margin-bottom: 0;
+    margin: 0;
+
+  }
+
+  .navbar .header :is(.name,.surname) {
+    line-height: 30px;
   }
 
   .navbar .header .surname {
@@ -138,9 +154,28 @@
     display: flex;
   }
 
+  .navbar :is(.container,.overflow-wrapper,.links) {
+    align-items: center;
+  }
+
+  .social-media {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .instagram {
+    margin: 0;
+  }
+
+  .social-media .link {
+    margin-bottom: 10px;
+  }
+
 }
 
-@media only screen and (max-width: 1400px) {
+
+@media only screen and (max-width: 1475px) {
   .navbar {
     margin-right: 0;
     align-items: center;
@@ -155,8 +190,8 @@
 
   .menu-icon {
     left: calc(50% - 31px);
-    top: 50%!important;
-    transform: translateY(-50%)!important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
 
   }
 }

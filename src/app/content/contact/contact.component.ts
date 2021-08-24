@@ -10,9 +10,11 @@ import {EmailService} from "../../shared/email/email.service";
 })
 export class ContactComponent implements OnInit {
   data: any;
+  validate: boolean;
 
   constructor(private lottieService: LottieAnimationsService,
               private emailService: EmailService) {
+    this.validate = true;
   }
 
   ngOnInit(): void {
@@ -21,26 +23,43 @@ export class ContactComponent implements OnInit {
         Validators.required]),
       email: new FormControl('', [
         Validators.required,
-        Validators.minLength(1),
         Validators.email]),
-      message: new FormControl('', [Validators.required,
-        Validators.minLength(1)])
+      message: new FormControl('', [
+        Validators.required
+      ])
     });
+
+  }
+
+  disableValidation(): void {
+
   }
 
   sendMessage(data: FormGroup): void {
+    data.markAllAsTouched();
     if (!data.invalid) {
-      this.lottieService.getAnimationById('sendButton')?.setSpeed(1.8);
-      this.lottieService.playAnimationInRange("sendButton", [0, 90], true);
       this.emailService.sendEmail(data).subscribe(this.emailSend);
     }
 
   }
 
   emailSend = () => {
-    this.lottieService.playAnimationInRange("sendButton", [90, 0], true);
     this.data.reset();
   };
 
+  get name() {
+    return this.data.get('name');
+  }
 
+  get email() {
+    return this.data.get('email');
+  }
+
+  get message() {
+    return this.data.get('message');
+  }
+
+  isValid(name: any): boolean {
+    return name.invalid && (name.dirty || name.touched);
+  }
 }
