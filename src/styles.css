@@ -1,5 +1,21 @@
 @import '~swiper/swiper-bundle.min.css';
-@import url("https://use.typekit.net/dtm1gjk.css");
+
+
+@font-face {
+  font-family: "acumin-pro";
+  src: url("https://use.typekit.net/af/6d4bb2/00000000000000003b9acafc/27/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n7&v=3") format("woff2"), url("https://use.typekit.net/af/6d4bb2/00000000000000003b9acafc/27/d?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n7&v=3") format("woff"), url("https://use.typekit.net/af/6d4bb2/00000000000000003b9acafc/27/a?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n7&v=3") format("opentype");
+  font-display: auto;
+  font-style: normal;
+  font-weight: 700;
+}
+
+@font-face {
+  font-family: "acumin-pro";
+  src: url("https://use.typekit.net/af/46da36/00000000000000003b9acaf6/27/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n4&v=3") format("woff2"), url("https://use.typekit.net/af/46da36/00000000000000003b9acaf6/27/d?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n4&v=3") format("woff"), url("https://use.typekit.net/af/46da36/00000000000000003b9acaf6/27/a?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n4&v=3") format("opentype");
+  font-display: auto;
+  font-style: normal;
+  font-weight: 400;
+}
 
 html, body {
   height: 100%;
@@ -44,8 +60,12 @@ a:hover {
   cursor: pointer;
 }
 
-
 input, textarea {
+  width: 100%;
+  -webkit-appearance: none;
+}
+
+input, textarea, select {
   font-family: 'acumin-pro', serif;
   background-color: #ffffff;
   border-color: #dddddd;
@@ -63,16 +83,24 @@ input, textarea {
   border-style: solid;
   border-width: 1px;
   outline: none;
-  -webkit-appearance: none;
   border-radius: 3px;
-  padding-right: 10px;
-  width: 100%;
   resize: vertical;
 }
 
 textarea {
   height: 130px;
   margin-bottom: 25px;
+}
+
+
+label {
+  color: #333333;
+  font-weight: bold;
+  font-size: 15px;
+  font-style: normal;
+  line-height: 15px;
+  text-align: left;
+  text-transform: none;
 }
 
 :is(input,textarea)::placeholder {
@@ -85,6 +113,9 @@ textarea {
 @media only screen and (max-width: 900px) {
   .header-space {
     margin-top: 95px;
+  }
+  .header-space-admin-status-on{
+    margin-top: 150px;
   }
 }
 
@@ -110,6 +141,102 @@ textarea {
   background-color: #fff;
   border-radius: 8px;
 }
-.uppercase{
+
+.uppercase {
   text-transform: uppercase;
+}
+
+
+.validity-error {
+  color: #CC0000;
+  margin-top: -30px;
+  height: 18px;
+  font-size: 13px;
+}
+
+.important-field {
+  color: #CC0000;
+}
+
+.input-field-error {
+  border-color: #CC0000;
+}
+
+.submit-container {
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  margin-top: 10px;
+}
+
+.submit-button {
+  border-radius: 5px;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: bold;
+  height: 40px;
+  line-height: 40px;
+  padding-left: 30px;
+  padding-right: 30px;
+  text-transform: none;
+  border: 1px solid #dddddd;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.button {
+  cursor: pointer;
+  color: var(--primary-color);
+  transition: background-color, color 0.8s ease;
+  background-color: white;
+}
+
+.button:hover {
+  background: var(--primary-color) !important;
+  color: white !important;
+
+}
+
+.button-dark {
+  cursor: pointer;
+  background-color: var(--primary-color);
+  color: white;
+  transition: background-color, color 0.8s ease;
+}
+
+.button-dark:hover {
+  background: white !important;
+  color: var(--primary-color) !important;
+
+}
+
+.danger-snackbar {
+  background: rgba(255, 255, 255, 0.42);
+  backdrop-filter: blur(3px);
+  color: #EB5554;
+  font-weight: bold;
+}
+
+.success-snackbar {
+  background: rgba(255, 255, 255, 0.42);
+  backdrop-filter: blur(3px);
+  color: var(--primary-color);
+  font-weight: bold;
+}
+
+.neutral-snackbar {
+  background: transparent;
+  color: black;
+}
+
+.warning-snackbar {
+  background: #F5D358;
+  color: black;
+}
+
+.spacer {
+  flex: 1 0;
 }

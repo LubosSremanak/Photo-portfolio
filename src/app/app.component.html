@@ -1,6 +1,7 @@
+<app-admin-status [class.admin-status-open]="isAdminOpen()" ></app-admin-status>
 <div class="container">
-  <div class="column-1 flex-row">
-    <app-navbar ></app-navbar>
+  <div [class.column1-admin-status-on]="isAdminOpen()" class="column-1 flex-row">
+    <app-navbar></app-navbar>
   </div>
   <div class="column-2">
     <router-outlet class="column-2"></router-outlet>

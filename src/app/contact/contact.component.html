@@ -1,0 +1,39 @@
+<app-article-header title="Contact"></app-article-header>
+<div class="contact flex-column">
+  <div class="container flex-column">
+    <form (ngSubmit)="sendMessage(data)" [formGroup]="data" class="form">
+      <label>
+        Name <span class="important-field">*</span>
+      </label><input [class.input-field-error]="isValid(name)&&message.errors?.required" formControlName="name"
+                     name="name" placeholder="Your name..."
+                     type="text">
+
+      <div class="validity-error">
+        <span *ngIf="isValid(name)&&name.errors?.required">
+         Name is required.</span>
+      </div>
+      <label>
+        Email address <span class="important-field">*</span>
+      </label>
+      <input [class.input-field-error]="isValid(email)&&(email.errors?.email||email.errors?.required)"
+             formControlName="email" name="email" placeholder="Your email..."
+             type="email">
+      <div class="validity-error">
+        <span *ngIf="isValid(email)&&(email.errors?.email||email.errors?.required)">
+          This field must be a valid email address</span>
+      </div>
+      <label>
+        Message <span class="important-field">*</span>
+      </label>
+      <textarea [class.input-field-error]="isValid(message)&&message.errors?.required" formControlName="message"
+                name="message"
+                placeholder="Your message..."></textarea>
+      <div class="validity-error">
+        <span *ngIf="isValid(message)&&message.errors?.required">Message is required.</span>
+      </div>
+      <div class="submit-container">
+        <button class="submit-button button">Submit</button>
+      </div>
+    </form>
+  </div>
+</div>

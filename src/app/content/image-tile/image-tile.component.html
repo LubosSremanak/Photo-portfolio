@@ -1,8 +1,0 @@
-<div class="image-container" (touchstart)="hoverOnTime()" (click)="navigate()"
-     (mouseenter)="imageHover=true" (mouseleave)="imageHover=false">
-  <div *ngIf="imageHover" [@fadeInOnEnter] [@fadeOutOnLeave] class="about flex-column">
-    <span class="title">{{imageTile.title}}</span>
-    <span class="content">{{imageTile.about}}</span>
-  </div>
-  <img [src]="imageTile.imageUrl+imageTile.rootImage+imageTile.format" loading="lazy" alt="image-tile"/>
-</div>

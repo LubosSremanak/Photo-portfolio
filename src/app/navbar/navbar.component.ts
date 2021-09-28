@@ -1,9 +1,10 @@
-import {AfterViewInit, Component, ElementRef, HostListener, OnInit} from '@angular/core';
-import {collapseAnimation, hueRotateAnimation} from "angular-animations";
-import {LottieAnimationsService} from "../shared/lottie-animations/service/lottie-animations.service";
+import {AfterViewInit, Component, ElementRef, HostListener, NgZone, OnInit} from '@angular/core';
+import {collapseAnimation} from "angular-animations";
+import {LottieAnimationsService} from "../api/lottie-animations/service/lottie-animations.service";
 import {NavigationEnd, Router} from "@angular/router";
 import {faInstagram, IconDefinition} from '@fortawesome/free-brands-svg-icons';
 import {faEnvelope} from "@fortawesome/free-solid-svg-icons";
+import {AdminStatusService} from "../shared/admin-status/service/admin-status.service";
 
 
 @Component({
@@ -20,7 +21,10 @@ export class NavbarComponent implements OnInit, AfterViewInit {
   readonly email: IconDefinition = faEnvelope;
 
   constructor(private lottieService: LottieAnimationsService,
-              private elementRef: ElementRef, private router: Router) {
+              private elementRef: ElementRef,
+              private router: Router,
+              private ngZone: NgZone,
+              private adminStatusService: AdminStatusService) {
     this._menuClick = true;
     this._isMenuRolled = false;
     this._isMenuRolling = false;
@@ -69,21 +73,25 @@ export class NavbarComponent implements OnInit, AfterViewInit {
   }
 
   menuClicked() {
-    this._menuClick = !this._menuClick;
-    if (this.menuClick) {
-      document.body.style.overflow = 'hidden';
-      this.lottieService.playAnimationInRange('menuButton', [30, 60], true);
-    } else {
-      document.body.style.overflow = 'auto';
-      this.lottieService.playAnimationInRange('menuButton', [50, 30], true);
-    }
+    this.ngZone.runOutsideAngular(() => {
+      this._menuClick = !this._menuClick;
+      if (this.menuClick) {
+        document.body.style.overflow = 'hidden';
+        this.lottieService.playAnimationInRange('menuButton', [30, 60], true);
+      } else {
+        document.body.style.overflow = 'auto';
+        this.lottieService.playAnimationInRange('menuButton', [50, 30], true);
+      }
+    });
   }
 
   @HostListener('window:resize', ['$event'])
   onResize(event: any) {
-    document.body.style.overflow = 'auto';
-    this.menuClick = window.innerWidth >= this.breakpoint;
-    this.lottieService.playAnimationInRange('menuButton', [50, 30], true);
+    this.ngZone.runOutsideAngular(() => {
+      document.body.style.overflow = 'auto';
+      this.menuClick = window.innerWidth >= this.breakpoint;
+      this.lottieService.playAnimationInRange('menuButton', [50, 30], true);
+    });
   }
 
   menuButtonInitialized(): void {
@@ -97,17 +105,14 @@ export class NavbarComponent implements OnInit, AfterViewInit {
   rollDone(event: any): void {
     this.isMenuRolled = true;
     this.isMenuRolling = false;
-    console.log("done")
   }
 
   rollStart(event: any): void {
     this.isMenuRolling = true;
     this.isMenuRolled = false;
-    console.log("start")
   }
 
   isMenuOpenOnMobile(): boolean {
     return this.menuClick && window.innerWidth <= this.breakpoint;
   }
-
 }

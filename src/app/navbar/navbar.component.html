@@ -1,29 +1,30 @@
-<nav class="navbar flex-column" [class.colorfull]="menuClick">
+<nav [class.colorfull]="menuClick" class="navbar flex-column">
   <div class="header flex-column">
     <a class="full-name flex-row" routerLink="">
       <span class="name">Natalia Tomkova</span>
     </a>
     <span class="profession">fashion stylist & consultant</span>
-    <app-lottie (isLoaded)="menuButtonInitialized()" class="menu-icon" (click)="menuClicked()" [loop]="false"
-                [autoPlay]="false"
-                [path]="'assets/animations/menuButton.json'" [lottieId]="'menuButton'"
-                width="62px"
-                height="62px"></app-lottie>
+    <app-lottie (click)="menuClicked()" (isLoaded)="menuButtonInitialized()" [autoPlay]="false" [loop]="false"
+                [lottieId]="'menuButton'"
+                [path]="'assets/animations/menuButton.json'" class="menu-icon"
+                height="62px"
+                width="62px"></app-lottie>
   </div>
-  <div class="container flex-column" [@collapse]="!menuClick" (@collapse.start)="rollStart($event)"
-       (@collapse.done)="rollDone($event)">
-    <div class="overflow-wrapper flex-column" [class.overflow]="isMenuRolled">
+  <div (@collapse.done)="rollDone($event)" (@collapse.start)="rollStart($event)" [@collapse]="!menuClick"
+       class="container flex-column">
+    <div [class.overflow]="isMenuRolled" class="overflow-wrapper flex-column">
       <div class="links flex-column">
-        <a class="link title uppercase center-wrapper" [routerLinkActiveOptions]="{exact: true}" routerLinkActive="active" routerLink="">
+        <a [routerLinkActiveOptions]="{exact: true}" class="link title uppercase center-wrapper"
+           routerLink="" routerLinkActive="active">
           <span>Work</span></a>
-        <a class="link title center-wrapper" routerLinkActive="active" routerLink="contact"> <span>Contact</span></a>
+        <a class="link title center-wrapper" routerLink="contact" routerLinkActive="active"> <span>Contact</span></a>
       </div>
-      <div class="social-media flex-row center-wrapper" >
+      <div class="social-media flex-row center-wrapper">
         <a class="link title" href="https://www.instagram.com/nattom_/" target="_blank">
-          <fa-icon class="icon instagram" [icon]="instagram"></fa-icon>
+          <fa-icon [icon]="instagram" class="icon instagram"></fa-icon>
         </a>
         <a class="link title" href="mailto:'natalia.tomkova149@gmail.com'">
-          <fa-icon class="icon mail" [icon]="email"></fa-icon>
+          <fa-icon [icon]="email" class="icon mail"></fa-icon>
         </a>
       </div>
     </div>
