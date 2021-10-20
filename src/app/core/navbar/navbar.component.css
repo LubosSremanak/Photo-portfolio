@@ -1,0 +1,183 @@
+.navbar {
+  height: 100%;
+  margin-top: 10px;
+  margin-right: 4vw;
+  margin-left: 40px;
+  width: 100%;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.navbar .header {
+  justify-content: flex-start;
+  align-items: flex-start;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.navbar .header .name {
+  margin-right: 50px;
+}
+
+.navbar .header .profession {
+  text-transform: uppercase;
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 30px;
+  text-align: center;
+  margin: 3px 0 0 3px;
+  color: var(--text-color);
+}
+
+.navbar .header :is(.name, .surname) {
+  font-size: 50px;
+  font-weight: 700;
+  line-height: 50px;
+  padding: 0 0;
+  text-transform: uppercase;
+}
+
+.navbar .header .menu-icon {
+  display: none;
+  position: absolute;
+  right: 10px;
+  top: 3px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.navbar :is(.container, .overflow-wrapper, .links) {
+  align-items: flex-start;
+  width: 100%;
+  margin-top: 10px;
+}
+
+.navbar .container .overflow-wrapper .links .link {
+  color: var(--text-color);
+  transition: color 0.3s ease;
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.center-wrapper {
+  width: 100px;
+  display: flex;
+  justify-content: center;
+}
+
+.navbar .container .title {
+  font-weight: 700;
+  font-size: 18px;
+}
+
+.active {
+  color: #080808 !important;
+}
+
+.icon {
+  font-size: 20px;
+  transition: ease 0.2s;
+}
+
+.icon:hover {
+  color: var(--text-color);
+}
+
+.instagram {
+  margin-right: 10px;
+}
+
+@media only screen and (max-width: 900px) {
+  .navbar {
+    margin: 0 !important;
+    padding: 0;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .navbar .container {
+    height: 100vh;
+    width: 100%;
+    overflow: hidden;
+  }
+
+  .overflow-wrapper {
+    height: 100%;
+    width: 100%;
+    margin-bottom: 20px;
+  }
+
+  .overflow {
+    overflow: auto;
+  }
+
+  .navbar .header {
+    align-items: center;
+    justify-content: center;
+    margin: 15px !important;
+  }
+
+  .navbar .header .full-name {
+    flex: 1 0 auto;
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  .navbar .header .name {
+    margin: 0;
+  }
+
+  .navbar .header :is(.name, .surname) {
+    line-height: 30px;
+  }
+
+  .navbar .header .profession {
+    font-size: 12px;
+    margin: 0;
+  }
+
+  .navbar .header :is(.name, .surname) {
+    font-size: 22px;
+  }
+
+  .navbar .header .menu-icon {
+    display: flex;
+  }
+
+  .navbar :is(.container, .overflow-wrapper, .links) {
+    align-items: center;
+  }
+
+  .social-media {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .instagram {
+    margin: 0;
+  }
+
+  .social-media .link {
+    margin-bottom: 10px;
+  }
+}
+
+@media only screen and (max-width: 1475px) {
+  .navbar {
+    margin-right: 0;
+    align-items: center;
+  }
+}
+
+@media (max-width: 330px) {
+  .header :is(.full-name, .profession) {
+    display: none;
+  }
+
+  .menu-icon {
+    left: calc(50% - 31px);
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+  }
+}

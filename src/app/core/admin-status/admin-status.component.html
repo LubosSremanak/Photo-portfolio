@@ -1,0 +1,6 @@
+<div *ngIf="isOpen" [@enter] [@leave] class="admin-status flex-row ">
+  <span class="name" (click)="navigateToCms()">
+    Admin:{{name}}
+  </span>
+  <button (click)="logout()" class="logout button submit-button">Logout</button>
+</div>

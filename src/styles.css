@@ -1,9 +1,13 @@
-@import '~swiper/swiper-bundle.min.css';
-
+@import "~swiper/swiper-bundle.min.css";
 
 @font-face {
   font-family: "acumin-pro";
-  src: url("https://use.typekit.net/af/6d4bb2/00000000000000003b9acafc/27/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n7&v=3") format("woff2"), url("https://use.typekit.net/af/6d4bb2/00000000000000003b9acafc/27/d?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n7&v=3") format("woff"), url("https://use.typekit.net/af/6d4bb2/00000000000000003b9acafc/27/a?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n7&v=3") format("opentype");
+  src: url("https://use.typekit.net/af/6d4bb2/00000000000000003b9acafc/27/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n7&v=3")
+      format("woff2"),
+    url("https://use.typekit.net/af/6d4bb2/00000000000000003b9acafc/27/d?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n7&v=3")
+      format("woff"),
+    url("https://use.typekit.net/af/6d4bb2/00000000000000003b9acafc/27/a?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n7&v=3")
+      format("opentype");
   font-display: auto;
   font-style: normal;
   font-weight: 700;
@@ -11,26 +15,31 @@
 
 @font-face {
   font-family: "acumin-pro";
-  src: url("https://use.typekit.net/af/46da36/00000000000000003b9acaf6/27/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n4&v=3") format("woff2"), url("https://use.typekit.net/af/46da36/00000000000000003b9acaf6/27/d?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n4&v=3") format("woff"), url("https://use.typekit.net/af/46da36/00000000000000003b9acaf6/27/a?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n4&v=3") format("opentype");
+  src: url("https://use.typekit.net/af/46da36/00000000000000003b9acaf6/27/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n4&v=3")
+      format("woff2"),
+    url("https://use.typekit.net/af/46da36/00000000000000003b9acaf6/27/d?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n4&v=3")
+      format("woff"),
+    url("https://use.typekit.net/af/46da36/00000000000000003b9acaf6/27/a?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n4&v=3")
+      format("opentype");
   font-display: auto;
   font-style: normal;
   font-weight: 400;
 }
 
-html, body {
+html,
+body {
   height: 100%;
 }
 
 body {
   margin: 0;
-  font-family: 'acumin-pro', serif;
+  font-family: "acumin-pro", serif;
   background-color: #ffffff;
   scroll-behavior: smooth;
 }
 
 * {
-  font-family: 'acumin-pro', serif;
-
+  font-family: "acumin-pro", serif;
 }
 
 .flex-row {
@@ -60,13 +69,16 @@ a:hover {
   cursor: pointer;
 }
 
-input, textarea {
+input,
+textarea {
   width: 100%;
   -webkit-appearance: none;
 }
 
-input, textarea, select {
-  font-family: 'acumin-pro', serif;
+input,
+textarea,
+select {
+  font-family: "acumin-pro", serif;
   background-color: #ffffff;
   border-color: #dddddd;
   color: #333333;
@@ -92,7 +104,6 @@ textarea {
   margin-bottom: 25px;
 }
 
-
 label {
   color: #333333;
   font-weight: bold;
@@ -103,7 +114,7 @@ label {
   text-transform: none;
 }
 
-:is(input,textarea)::placeholder {
+:is(input, textarea)::placeholder {
   color: #aeadad !important;
   font-size: 13px !important;
   font-weight: 200 !important;
@@ -114,7 +125,7 @@ label {
   .header-space {
     margin-top: 95px;
   }
-  .header-space-admin-status-on{
+  .header-space-admin-status-on {
     margin-top: 150px;
   }
 }
@@ -146,20 +157,19 @@ label {
   text-transform: uppercase;
 }
 
-
 .validity-error {
-  color: #CC0000;
+  color: #cc0000;
   margin-top: -30px;
   height: 18px;
   font-size: 13px;
 }
 
 .important-field {
-  color: #CC0000;
+  color: #cc0000;
 }
 
 .input-field-error {
-  border-color: #CC0000;
+  border-color: #cc0000;
 }
 
 .submit-container {
@@ -186,7 +196,6 @@ label {
   align-items: center;
 }
 
-
 .button {
   cursor: pointer;
   color: var(--primary-color);
@@ -197,7 +206,6 @@ label {
 .button:hover {
   background: var(--primary-color) !important;
   color: white !important;
-
 }
 
 .button-dark {
@@ -210,13 +218,12 @@ label {
 .button-dark:hover {
   background: white !important;
   color: var(--primary-color) !important;
-
 }
 
 .danger-snackbar {
   background: rgba(255, 255, 255, 0.42);
   backdrop-filter: blur(3px);
-  color: #EB5554;
+  color: #eb5554;
   font-weight: bold;
 }
 
@@ -233,7 +240,7 @@ label {
 }
 
 .warning-snackbar {
-  background: #F5D358;
+  background: #f5d358;
   color: black;
 }
 

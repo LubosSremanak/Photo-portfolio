@@ -1,6 +1,6 @@
-import {ComponentFixture, TestBed} from '@angular/core/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import {ImageTileComponent} from './image-tile.component';
+import { ImageTileComponent } from './image-tile.component';
 
 describe('ImageTileComponent', () => {
   let component: ImageTileComponent;
@@ -8,9 +8,8 @@ describe('ImageTileComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ImageTileComponent]
-    })
-      .compileComponents();
+      declarations: [ImageTileComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {

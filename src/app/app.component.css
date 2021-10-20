@@ -51,11 +51,10 @@
     top: 0;
     left: 0;
     width: 100%;
-    z-index: 999!important;
+    z-index: 999 !important;
   }
 
   .container .column-2 {
     width: 100%;
   }
 }
-

@@ -1,14 +1,24 @@
-import {ChangeDetectionStrategy, Component, Input, OnInit} from '@angular/core';
-import {ImageTile} from "./model/image-tile";
-import {Router} from "@angular/router";
-import {fadeInOnEnterAnimation, fadeOutOnLeaveAnimation} from "angular-animations";
+import {
+  ChangeDetectionStrategy,
+  Component,
+  Input,
+  OnInit,
+} from '@angular/core';
+import { ImageTile } from './model/image-tile';
+import { Router } from '@angular/router';
+import {
+  fadeInOnEnterAnimation,
+  fadeOutOnLeaveAnimation,
+} from 'angular-animations';
 
 @Component({
   selector: 'app-image-tile',
   templateUrl: './image-tile.component.html',
   styleUrls: ['./image-tile.component.css'],
-  animations: [fadeInOnEnterAnimation({duration: 300}),
-    fadeOutOnLeaveAnimation({duration: 300})],
+  animations: [
+    fadeInOnEnterAnimation({ duration: 300 }),
+    fadeOutOnLeaveAnimation({ duration: 300 }),
+  ],
 })
 export class ImageTileComponent implements OnInit {
   @Input() imageTile: ImageTile | undefined;
@@ -27,9 +37,7 @@ export class ImageTileComponent implements OnInit {
     this._imageHover = value;
   }
 
-  ngOnInit(): void {
-
-  }
+  ngOnInit(): void {}
 
   navigate(): void {
     this.router.navigate(['article', this.imageTile?.articlePath]).then();
@@ -42,11 +50,10 @@ export class ImageTileComponent implements OnInit {
   }
 
   delay(seconds: number) {
-    return new Promise(resolve => {
+    return new Promise((resolve) => {
       setTimeout(() => {
         resolve(2);
       }, seconds * 1000);
     });
   }
-
 }

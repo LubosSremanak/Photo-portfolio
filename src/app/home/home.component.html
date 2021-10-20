@@ -1,0 +1,12 @@
+<div
+  class="home-section flex-column header-space"
+  [class.header-space-admin-status-on]="isAdminOpen()"
+>
+  <div class="photos">
+    <div *ngFor="let i of articlesArray" class="row">
+      <app-image-tile [imageTile]="imageTiles[i * 2]"></app-image-tile>
+      <app-image-tile [imageTile]="imageTiles[i * 2 + 1]"></app-image-tile>
+    </div>
+  </div>
+  <app-article-footer class="footer"></app-article-footer>
+</div>

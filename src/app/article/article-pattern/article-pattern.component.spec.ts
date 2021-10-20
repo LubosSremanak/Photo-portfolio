@@ -1,6 +1,6 @@
-import {ComponentFixture, TestBed} from '@angular/core/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import {ArticlePatternComponent} from './article-pattern.component';
+import { ArticlePatternComponent } from './article-pattern.component';
 
 describe('ArticlePatternComponent', () => {
   let component: ArticlePatternComponent;
@@ -8,9 +8,8 @@ describe('ArticlePatternComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ArticlePatternComponent]
-    })
-      .compileComponents();
+      declarations: [ArticlePatternComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {

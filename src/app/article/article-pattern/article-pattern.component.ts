@@ -1,10 +1,10 @@
-import {ChangeDetectionStrategy, Component, OnInit} from '@angular/core';
-import {ActivatedRoute} from "@angular/router";
-import {ImageTile} from "../../shared/image-tile/model/image-tile";
-import {ArticleService} from "../../api/article/article.service";
-import {Article} from "../../api/article/model/article";
-import {HttpEvent} from "@angular/common/http";
-import {ArticleManageService} from "../service/article-manage.service";
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { ImageTile } from '../../shared/image-tile/model/image-tile';
+import { Article } from '../../api/article/model/article';
+import { HttpEvent } from '@angular/common/http';
+import { ArticleManageService } from '../service/article-manage.service';
+import { ArticlesService } from '../../api/article/articles.service';
 
 @Component({
   selector: 'app-article-pattern',
@@ -14,9 +14,11 @@ import {ArticleManageService} from "../service/article-manage.service";
 export class ArticlePatternComponent implements OnInit {
   private readonly _linkedArticles: ImageTile[];
 
-  constructor(private articleService: ArticleService,
-              private articlesManageService: ArticleManageService,
-              private route: ActivatedRoute) {
+  constructor(
+    private articleService: ArticlesService,
+    private articlesManageService: ArticleManageService,
+    private route: ActivatedRoute
+  ) {
     this._linkedArticles = [];
     this.route.data.subscribe(this.handleArticles);
   }
@@ -38,8 +40,12 @@ export class ArticlePatternComponent implements OnInit {
   getLinkedArticles(): void {
     const articleTitle1: string | null = this._article?.nextArticleTitle1!;
     const articleTitle2: string | null = this._article?.nextArticleTitle2!;
-    this.articleService.getArticle(articleTitle1).subscribe(this.handleLinkedArticles);
-    this.articleService.getArticle(articleTitle2).subscribe(this.handleLinkedArticles);
+    this.articleService
+      .getArticle(articleTitle1)
+      .subscribe(this.handleLinkedArticles);
+    this.articleService
+      .getArticle(articleTitle2)
+      .subscribe(this.handleLinkedArticles);
   }
 
   handleLinkedArticles = (articleResponse: HttpEvent<Article>): void => {
@@ -48,12 +54,11 @@ export class ArticlePatternComponent implements OnInit {
       about: article.about,
       articlePath: article.title,
       image: this.articlesManageService.getRootImage(article)!,
-      title: article.title
-    })
+      title: article.title,
+    });
   };
 
   private handleArticles = (data: any): void => {
     this._article = data.article;
   };
-
 }

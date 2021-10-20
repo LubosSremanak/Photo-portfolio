@@ -1,4 +1,4 @@
-import {Image} from "../../../api/article/model/image";
+import { Image } from '../../../api/article/model/image';
 
 export interface ImageTile {
   about: string;

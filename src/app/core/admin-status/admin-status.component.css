@@ -1,0 +1,25 @@
+.admin-status {
+  width: 100%;
+  color: var(--primary-color);
+  box-sizing: border-box;
+  justify-content: center;
+  align-items: center;
+  padding: 5px;
+  height: 40px;
+  cursor: pointer;
+  backdrop-filter: blur(5px);
+
+}
+
+.name {
+  flex: 1 0;
+}
+
+.name, .logout {
+  margin: 0 10px;
+}
+
+.logout {
+  height: 25px;
+  width: 80px;
+}

@@ -1,0 +1,44 @@
+<app-article-header title="Login">
+</app-article-header>
+<div class="login flex-column">
+  <div class="container flex-column">
+    <form (ngSubmit)="login(data)" [formGroup]="data" class="form">
+      <label> Name <span class="important-field">*</span> </label
+      ><input
+      formControlName="name"
+      type="text"
+      name="name"
+      placeholder="Your name..."
+      [class.input-field-error]="isValid(name)"
+    />
+
+      <div class="validity-error">
+      <span *ngIf="isValid(name) && name?.errors?.required">
+        Name is required.</span
+      >
+      </div>
+      <label> Password <span class="important-field">*</span> </label>
+      <input
+        type="password"
+        formControlName="password"
+        name="password"
+        placeholder="Your password..."
+        [class.input-field-error]="
+        isValid(password) && password?.errors?.required
+      "
+      />
+      <div class="validity-error">
+      <span
+        *ngIf="
+          isValid(password) && password?.errors?.required
+        "
+      >
+        This field must be a valid email address</span
+      >
+      </div>
+      <div class="submit-container">
+        <button class="button submit-button">Login</button>
+      </div>
+    </form>
+  </div>
+</div>

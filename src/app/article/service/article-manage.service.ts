@@ -1,10 +1,10 @@
-import {Injectable} from '@angular/core';
-import {Article} from "../../api/article/model/article";
-import {ImageTile} from "../../shared/image-tile/model/image-tile";
-import {Image} from "../../api/article/model/image";
+import { Injectable } from '@angular/core';
+import { Article } from '../../api/article/model/article';
+import { ImageTile } from '../../shared/image-tile/model/image-tile';
+import { Image } from '../../api/article/model/image';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class ArticleManageService {
   constructor() {
@@ -21,17 +21,15 @@ export class ArticleManageService {
     this._articles = value;
   }
 
-
   createImageTiles(): ImageTile[] {
     let imageTiles: ImageTile[] = [];
     this.articles.forEach((article: Article) => {
       imageTiles.push({
-          about: article.about,
-          articlePath: article.title,
-          image: this.getRootImage(article)!,
-          title: article.title
-        }
-      );
+        about: article.about,
+        articlePath: article.title,
+        image: this.getRootImage(article)!,
+        title: article.title,
+      });
     });
     return imageTiles;
   }

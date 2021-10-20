@@ -1,9 +1,23 @@
-<div (click)="navigate()" (mouseenter)="imageHover=true" (mouseleave)="imageHover=false"
-     (touchstart)="hoverOnTime()" class="image-container">
-  <div *ngIf="imageHover" [@fadeInOnEnter] [@fadeOutOnLeave] class="about flex-column">
-    <span class="title">{{imageTile?.title}}</span>
-    <span class="content">{{imageTile?.about}}</span>
+<div
+  (click)="navigate()"
+  (mouseenter)="imageHover = true"
+  (mouseleave)="imageHover = false"
+  (touchstart)="hoverOnTime()"
+  class="image-container"
+>
+  <div
+    *ngIf="imageHover"
+    [@fadeInOnEnter]
+    [@fadeOutOnLeave]
+    class="about flex-column"
+  >
+    <span class="title">{{ imageTile?.title }}</span>
+    <span class="content">{{ imageTile?.about }}</span>
   </div>
-  <img *ngIf="imageTile" [alt]="imageTile?.title" [src]="imageTile?.image?.path"
-       loading="lazy"/>
+  <img
+    *ngIf="imageTile"
+    [alt]="imageTile?.title"
+    [src]="imageTile?.image?.path"
+    loading="lazy"
+  />
 </div>
