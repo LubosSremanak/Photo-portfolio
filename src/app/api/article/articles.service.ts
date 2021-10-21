@@ -36,9 +36,9 @@ export class ArticlesService {
     return this.http.put<string>(this.url, article, this.options);
   }
 
-  reorderArticles(article: Article): Observable<HttpEvent<string>> {
+  reorderArticles(articles: Article[]): Observable<HttpEvent<string>> {
     const url: string = this.url + '?order=true';
-    return this.http.post<string>(url, article, this.options);
+    return this.http.put<string>(url, articles, this.options);
   }
 
   deleteArticle(title: string): Observable<HttpEvent<string>> {

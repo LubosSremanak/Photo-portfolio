@@ -34,7 +34,7 @@ export class LoginComponent implements OnInit {
 
   private handleLogin = (response: any): void => {
     if (response.successfulLogin) {
-      this.adminStatusService.open();
+      this.adminStatusService.open(response.name);
       this.router.navigate(['admin/cms']);
     }
   };

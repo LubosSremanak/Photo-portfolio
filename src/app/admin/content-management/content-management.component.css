@@ -1,0 +1,108 @@
+.cms {
+  width: 100%;
+}
+
+.button{
+  margin-top: 20px;
+  width: 150px;
+}
+
+.table {
+  background: white;
+  font-family: "acumin-pro", serif;
+  box-sizing: border-box;
+  cursor: pointer;
+  margin-top: -40px !important;
+  border-radius: 5px;
+}
+
+
+.filter input {
+  width: 200px;
+}
+
+.filter-wrapper label {
+  margin-left: 5px;
+}
+
+.table td {
+  padding: 0.8em;
+  min-width: 100px;
+  transition: background-color, color 0.2s ease-in-out;
+}
+
+.table tr {
+
+}
+
+::ng-deep .cdk-drag-preview td {
+  border: none !important;
+  display: none;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+::ng-deep .cdk-drag-preview td:nth-child(1) {
+  text-align: center;
+  display: flex;
+  position: absolute;
+  animation: anim ease-in-out 0.5s;
+  left: 50%;
+  top: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  font-size: medium;
+  color: white;
+}
+
+::ng-deep .cdk-drag-preview {
+  height: 43px !important;
+  position: relative;
+  background: #212121;
+  border-radius: 5px;
+}
+
+@keyframes anim {
+  0% {
+    left: 100px;
+  }
+  100% {
+    left: 50%;
+
+  }
+}
+.icon{
+  border-radius: 50%;
+  padding: 5px;
+  text-align: center;
+  font-size: 23px;
+}
+
+.row:hover td {
+  color: white;
+  background: #212121;
+}
+
+.row:hover td:first-child {
+  border-radius: 5px 0 0 5px;
+}
+
+.row:hover td:last-child {
+  border-radius: 0 5px 5px 0;
+}
+
+
+.cdk-drag-animating {
+  transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+}
+
+.table:last-child {
+  border: none;
+}
+
+.cdk-drop-list-dragging .table:not(.cdk-drag-placeholder) {
+  transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+}
+
+.cdk-drag-placeholder {
+  opacity: 0;
+}
