@@ -6,20 +6,53 @@
   align-items: center;
   padding: 5px;
   height: 40px;
-  cursor: pointer;
   backdrop-filter: blur(5px);
+  box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+}
+
+.weight{
+  font-weight: bold;
+}
+
+.admin {
+  width: fit-content;
+  justify-content: center;
+  align-items: center;
+}
+
+.admin .fab {
+  margin: 5px;
+}
+
+.nav-link{
+  margin: 0 20px;
+}
+
+.link {
+  cursor: pointer;
 
 }
 
-.name {
-  flex: 1 0;
+.link:hover {
+  font-weight: bold;
 }
 
-.name, .logout {
+.divider{
   margin: 0 10px;
 }
-
 .logout {
   height: 25px;
   width: 80px;
+}
+
+mat-menu{
+  text-align: center;
+}
+
+.link-text{
+  color: black;
+}
+
+mat-menu button:hover{
+
 }

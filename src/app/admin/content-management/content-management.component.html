@@ -1,46 +1,79 @@
 <app-article-header title="Articles"></app-article-header>
 <div class="cms flex-column">
-  <table class="table mat-elevation-z1" mat-table [dataSource]="dataSource" cdkDropList
-         (cdkDropListDropped)="drop($event)">>
+  <table
+    class="table mat-elevation-z1"
+    mat-table
+    [dataSource]="dataSource"
+    cdkDropList
+    (cdkDropListDropped)="drop($event)"
+  >
+    >
 
     <ng-container matColumnDef="title">
       <th mat-header-cell *matHeaderCellDef>Title</th>
-      <td mat-cell *matCellDef="let row"> {{row.title|textOverflow}} </td>
+      <td mat-cell *matCellDef="let row">{{ row.title | textOverflow }}</td>
     </ng-container>
-
 
     <ng-container matColumnDef="about">
-      <th mat-header-cell *matHeaderCellDef> About</th>
-      <td mat-cell *matCellDef="let row"> {{row.about|textOverflow}}</td>
+      <th mat-header-cell *matHeaderCellDef>About</th>
+      <td mat-cell *matCellDef="let row">{{ row.about | textOverflow }}</td>
     </ng-container>
-
 
     <ng-container matColumnDef="nextArticleTitle1">
-      <th mat-header-cell *matHeaderCellDef> Next article 1</th>
-      <td mat-cell *matCellDef="let row"> {{row.nextArticleTitle1|textOverflow}} </td>
+      <th mat-header-cell *matHeaderCellDef>Next article 1</th>
+      <td *matCellDef="let row" mat-cell>
+        <ng-container *ngIf="row.nextArticleTitle1">
+          {{ row.nextArticleTitle1 | textOverflow }}
+        </ng-container>
+      </td>
     </ng-container>
 
-
     <ng-container matColumnDef="nextArticleTitle2">
-      <th mat-header-cell *matHeaderCellDef> Next article 2</th>
-      <td mat-cell *matCellDef="let row"> {{row.nextArticleTitle2|textOverflow}} </td>
+      <th mat-header-cell *matHeaderCellDef>Next article 2</th>
+      <td *matCellDef="let row" mat-cell>
+        <ng-container *ngIf="row.nextArticleTitle2">
+          {{ row.nextArticleTitle2 | textOverflow }}
+        </ng-container>
+      </td>
     </ng-container>
 
     <ng-container matColumnDef="edit">
-      <th mat-header-cell *matHeaderCellDef> Edit</th>
-      <td mat-cell *matCellDef="let row"><mat-icon class="icon button-dark">edit</mat-icon></td>
+      <th mat-header-cell *matHeaderCellDef>Edit</th>
+      <td (click)="edit($event, row.title)" *matCellDef="let row" mat-cell>
+        <mat-icon class="icon button-dark">edit</mat-icon>
+      </td>
     </ng-container>
 
     <ng-container matColumnDef="delete">
-      <th mat-header-cell *matHeaderCellDef> delete</th>
-      <td mat-cell *matCellDef="let row"><mat-icon class="icon button-dark">delete</mat-icon></td>
+      <th *matHeaderCellDef mat-header-cell>Delete</th>
+      <td (click)="delete($event, row.title)" *matCellDef="let row" mat-cell>
+        <mat-icon class="icon button-dark">delete</mat-icon>
+      </td>
     </ng-container>
 
     <tr mat-header-row [@enter] *matHeaderRowDef="displayedColumns"></tr>
-    <tr cdkDragLockAxis="y" [class.row]="draggingDone" (cdkDragStarted)="draggingDone=false"
-        [@enter]
-        (click)="openArticle(row.title)" cdkDragBoundary="table tbody" cdkDrag mat-row
-        *matRowDef="let row; columns: displayedColumns;"></tr>
+    <tr
+      cdkDragLockAxis="y"
+      [class.row]="draggingDone"
+      (cdkDragStarted)="draggingDone = false"
+      [@enter]
+      [@leave]
+      (click)="openArticle(row.title)"
+      cdkDragBoundary="table tbody"
+      cdkDrag
+      mat-row
+      *matRowDef="let row; columns: displayedColumns"
+    ></tr>
+
+    <tr class="placeholder" *matNoDataRow>
+      <td colspan="6">
+        Add article by clicking on
+        <mat-icon class="button-dark button-dark-no-hover fab">add</mat-icon>
+      </td>
+    </tr>
+
   </table>
-  <button class="button submit-button">Add article</button>
+  <button (click)="addArticle()" class="add button-dark fab submit-button">
+    <mat-icon>add</mat-icon>
+  </button>
 </div>

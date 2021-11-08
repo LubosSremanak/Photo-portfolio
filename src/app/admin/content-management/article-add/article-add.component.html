@@ -1,1 +1,86 @@
-<p>article-add works!</p>
+<app-article-header
+  [text]=""
+  [title]="articleTitle ? articleTitle : type + ' article'"
+></app-article-header>
+<div class="add-article flex-column">
+  <mat-tab-group class="tabs" mat-align-tabs="start" dynamicHeight>
+
+    <mat-tab label="Article">
+      <div  class="tab">
+        <div class="container flex-column">
+          <form (ngSubmit)="updateArticle(data)" [formGroup]="data" class="form">
+            <!--     Title-->
+            <label> Title <span class="important-field">*</span> </label
+            ><input
+            [class.input-field-error]="isValid(title)"
+            formControlName="title"
+            name="title"
+            placeholder="Article title..."
+            type="text"
+          />
+            <div class="validity-error">
+        <span *ngIf="isValid(title) && title?.errors?.required">
+          Title is required.</span
+        >
+            </div>
+
+            <!--     About-->
+            <label> About</label>
+            <textarea
+              formControlName="about"
+              name="about"
+              placeholder="Article about..."
+            ></textarea>
+            <div class="flex-row selection">
+              <div class="selection-wrapper">
+                <!--      ArticleNext1-->
+                <label> Next article1</label>
+                <select
+                  class="select"
+                  formControlName="nextArticleTitle1"
+                  name="nextArticleTitle1"
+                >
+                  <option [value]="null" disabled hidden selected>None</option>
+                  <option
+                    *ngFor="let article of articlesSelect"
+                    [value]="article.title"
+                  >
+                    {{ article.title }}
+                  </option>
+                </select>
+              </div>
+              <div class="selection-wrapper">
+                <!--      ArticleNext2-->
+                <label> Next article2</label>
+                <select
+                  class="select"
+                  formControlName="nextArticleTitle2"
+                  name="nextArticleTitle2"
+                >
+                  <option [value]="null" disabled hidden selected>None</option>
+                  <option
+                    *ngFor="let article of articlesSelect"
+                    [value]="article.title"
+                  >
+                    {{ article.title }}
+                  </option>
+                </select>
+              </div>
+            </div>
+
+            <div class="submit-container">
+              <button class="button submit-button">{{ type + " article" }}</button>
+            </div>
+          </form>
+        </div>
+      </div>
+
+    </mat-tab>
+    <mat-tab label="Images">
+        <div class="tab">
+          <app-image-manager></app-image-manager>
+        </div>
+    </mat-tab>
+
+  </mat-tab-group>
+</div>

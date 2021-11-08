@@ -1,11 +1,11 @@
 import {Injectable} from '@angular/core';
-import {HttpClient, HttpEvent, HttpHeaders} from "@angular/common/http";
-import {Observable} from "rxjs";
-import {User} from "./model/user";
-import {LoginResponse} from "./model/loginResponse";
+import {HttpClient, HttpEvent, HttpHeaders} from '@angular/common/http';
+import {Observable} from 'rxjs';
+import {User} from './model/user';
+import {LoginResponse} from './model/loginResponse';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class UsersService {
   private readonly url: string;
@@ -32,5 +32,7 @@ export class UsersService {
     return this.http.get<LoginResponse>(this.url, this.options);
   }
 
-
+  changePassword(user: User, newPassword: string): Observable<HttpEvent<any>> {
+    return this.http.put<any>(this.url, {user, newPassword}, this.options);
+  }
 }

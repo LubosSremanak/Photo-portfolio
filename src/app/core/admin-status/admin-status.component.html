@@ -1,6 +1,19 @@
-<div *ngIf="isOpen" [@enter] [@leave] class="admin-status flex-row ">
-  <span class="name" (click)="navigateToCms()">
-    Admin:{{name}}
-  </span>
-  <button (click)="logout()" class="logout button-dark submit-button">Logout</button>
+<div *ngIf="isOpen" [@enter] [@leave] class="admin-status flex-row">
+<span [matMenuTriggerFor]="menu" class="admin link divider flex-row">
+      <mat-icon [inline]="true"
+                class="button-dark button-dark-no-hover fab">person</mat-icon>
+      <span class="weight"> {{ name | titlecase }}</span>
+    </span>
+  <mat-menu #menu="matMenu">
+    <button routerLink="admin/settings" mat-menu-item>
+      <mat-icon class="button button-no-hover fab link-text">settings</mat-icon>
+      <span class="link-text">Settings</span></button>
+    <button class="" (click)="logout()" mat-menu-item>
+      <mat-icon class="button button-no-hover fab link-text">exit_to_app</mat-icon>
+      <span class="link-text">Log out</span>
+    </button>
+  </mat-menu>
+  <a class="link nav-link" routerLink="admin/cms">Articles</a>
+  <div class="spacer"></div>
+
 </div>

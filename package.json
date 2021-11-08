@@ -28,6 +28,7 @@
     "@fortawesome/free-solid-svg-icons": "^5.15.3",
     "angular-animations": "^0.11.0",
     "lottie-web": "^5.7.11",
+    "ngx-image-compress": "^11.0.3",
     "ngx-lottie": "^7.0.3",
     "ngx-picture": "^2.0.16",
     "ngx-smooth-dnd": "^0.4.1",

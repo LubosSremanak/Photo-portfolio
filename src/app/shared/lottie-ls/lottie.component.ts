@@ -1,4 +1,5 @@
 import {
+  ChangeDetectionStrategy,
   Component,
   EventEmitter,
   Input,
@@ -13,6 +14,7 @@ import { LottieAnimationsService } from './service/lottie-animations.service';
   selector: 'app-lottie',
   templateUrl: './lottie.component.html',
   styleUrls: ['./lottie.component.css'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class LottieComponent implements OnInit, OnDestroy {
   @Input() lottieId: string | null;
@@ -59,7 +61,6 @@ export class LottieComponent implements OnInit, OnDestroy {
     if (!this.lottieId) {
       this.lottieId = String(this.lottieService.length);
       console.warn('New id', this.lottieId);
-      console.log(this.lottieService.animations);
     }
     if (!this.path) {
       throw new Error('"path" can\'t be empty!');

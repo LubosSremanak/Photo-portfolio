@@ -33,6 +33,7 @@ export class ArticlesService {
   }
 
   editArticle(article: Article): Observable<HttpEvent<string>> {
+    console.log(article.images)
     return this.http.put<string>(this.url, article, this.options);
   }
 
@@ -43,6 +44,15 @@ export class ArticlesService {
 
   deleteArticle(title: string): Observable<HttpEvent<string>> {
     const url: string = this.url + '?title=' + title;
+    return this.http.delete<string>(url, this.options);
+  }
+
+  deleteArticleImage(
+    title: string,
+    path: string
+  ): Observable<HttpEvent<string>> {
+    let url: string = this.url + '?title=' + title;
+    url += '&path=' + path;
     return this.http.delete<string>(url, this.options);
   }
 }

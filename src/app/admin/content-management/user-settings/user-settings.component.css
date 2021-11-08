@@ -1,0 +1,28 @@
+.admin-settings {
+  justify-content: flex-start;
+  align-items: center;
+  font-family: "acumin-pro", serif;
+  width: 100%;
+  margin-bottom: 20px;
+  margin-top: -50px;
+}
+
+.tabs {
+  width: 50vw;
+  box-shadow: 0 2px 1px -2px rgb(0 0 0 / 20%), 0 1px 2px 0 rgb(0 0 0 / 14%),
+  0 0 5px 0 rgb(0 0 0 / 12%);
+  border-radius: 5px;
+}
+
+.tab{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+@media (max-width: 900px) {
+  .tabs {
+    width: 85vw;
+  }
+}

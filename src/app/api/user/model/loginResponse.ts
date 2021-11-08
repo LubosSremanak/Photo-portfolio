@@ -1,4 +1,4 @@
 export interface LoginResponse {
-    name: string;
-    isLogged: boolean
+  name: string;
+  isLogged: boolean;
 }

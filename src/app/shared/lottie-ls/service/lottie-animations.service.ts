@@ -6,23 +6,19 @@ import { AnimationItem, AnimationSegment } from 'lottie-web';
   providedIn: 'root',
 })
 export class LottieAnimationsService {
-  private readonly _animations: Map<string, Lottie>;
+  private readonly animations: Map<string, Lottie>;
 
   constructor() {
-    this._animations = new Map<string, Lottie>();
+    this.animations = new Map<string, Lottie>();
   }
 
   get length(): number {
-    return this._animations.size;
-  }
-
-  get animations(): Map<string, Lottie> {
-    return this._animations;
+    return this.animations.size;
   }
 
   public removeAnimationById(id: string | null): void {
     if (id) {
-      this._animations.delete(id);
+      this.animations.delete(id);
     }
   }
 
@@ -31,15 +27,15 @@ export class LottieAnimationsService {
     if (this.animations.has(id)) {
       console.error('Duplicate ID', id);
     }
-    this._animations.set(id, animation);
+    this.animations.set(id, animation);
   }
 
   public getAnimationById(id: string): AnimationItem | null | undefined {
-    return this._animations.get(id)?.reference;
+    return this.animations.get(id)?.reference;
   }
 
   public getAnimationOptionsById(id: string): any {
-    return this._animations.get(id)?.options;
+    return this.animations.get(id)?.options;
   }
 
   public playAnimationInRange(
@@ -64,7 +60,7 @@ export class LottieAnimationsService {
   }
 
   public addAnimationReference(id: string, reference: AnimationItem): void {
-    const lottie: Lottie | undefined = this._animations.get(id);
+    const lottie: Lottie | undefined = this.animations.get(id);
     if (lottie) {
       lottie.reference = reference;
     } else {

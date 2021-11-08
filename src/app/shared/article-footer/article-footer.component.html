@@ -1,5 +1,8 @@
 <div class="article-footer flex-column">
-  <div *ngIf="articlesToSee" class="articles flex-column">
+  <div
+    *ngIf="articlesToSee && articlesToSee[0].title && articlesToSee[1].title"
+    class="articles flex-column"
+  >
     <span class="title">You may also like</span>
     <div class="links flex-row">
       <div class="article1">

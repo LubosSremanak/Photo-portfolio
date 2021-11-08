@@ -6,14 +6,18 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { ImageTileComponent } from './image-tile/image-tile.component';
 import { ArticleHeaderComponent } from './article-header/article-header.component';
 import { ArticleFooterComponent } from './article-footer/article-footer.component';
+import { DialogComponent } from './dialog/dialog.component';
+import { MatDialogModule } from '@angular/material/dialog';
+import { NgxImageCompressService } from 'ngx-image-compress';
 
 @NgModule({
   declarations: [
     ImageTileComponent,
     ArticleHeaderComponent,
     ArticleFooterComponent,
+    DialogComponent,
   ],
-  imports: [CommonModule, MatIconModule],
+  imports: [CommonModule, MatIconModule, MatDialogModule],
   exports: [
     MatIconModule,
     LottieModule,
@@ -22,5 +26,6 @@ import { ArticleFooterComponent } from './article-footer/article-footer.componen
     ArticleHeaderComponent,
     ArticleFooterComponent,
   ],
+  providers: [NgxImageCompressService],
 })
 export class SharedModule {}

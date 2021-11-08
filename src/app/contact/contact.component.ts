@@ -10,12 +10,10 @@ import { LottieAnimationsService } from '../shared/lottie-ls/service/lottie-anim
 })
 export class ContactComponent implements OnInit {
   data: FormGroup;
-  validate: boolean;
   constructor(
     private lottieService: LottieAnimationsService,
     private emailService: EmailService
   ) {
-    this.validate = true;
     this.data = new FormGroup({
       name: new FormControl('', [Validators.required]),
       email: new FormControl('', [Validators.required, Validators.email]),

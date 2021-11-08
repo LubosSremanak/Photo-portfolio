@@ -16,6 +16,7 @@ import {
 import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
 import { AdminStatusService } from '../admin-status/service/admin-status.service';
 import { LottieAnimationsService } from '../../shared/lottie-ls/service/lottie-animations.service';
+
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
@@ -26,7 +27,7 @@ export class NavbarComponent implements OnInit, AfterViewInit {
   readonly breakpoint: number = 900;
   readonly instagram: IconDefinition = faInstagram;
   readonly email: IconDefinition = faEnvelope;
-
+  private height: number;
   constructor(
     private lottieService: LottieAnimationsService,
     private elementRef: ElementRef,
@@ -34,6 +35,7 @@ export class NavbarComponent implements OnInit, AfterViewInit {
     private ngZone: NgZone,
     private adminStatusService: AdminStatusService
   ) {
+    this.height = window.innerHeight;
     this._menuClick = true;
     this._isMenuRolled = false;
     this._isMenuRolling = false;
@@ -97,7 +99,11 @@ export class NavbarComponent implements OnInit, AfterViewInit {
   onResize(event: any) {
     this.ngZone.runOutsideAngular(() => {
       document.body.style.overflow = 'auto';
+      if (window.innerWidth <= 600) {
+        return;
+      }
       this.menuClick = window.innerWidth >= this.breakpoint;
+      const height = window.innerHeight;
       this.lottieService.playAnimationInRange('menuButton', [50, 30], true);
     });
   }

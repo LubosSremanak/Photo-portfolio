@@ -1,10 +1,16 @@
 .cms {
   width: 100%;
+  position: relative;
 }
 
-.button{
-  margin-top: 20px;
-  width: 150px;
+.add {
+  position: absolute;
+  left: 50%;
+  top: -65px;
+  width: 40px;
+  height: 40px;
+  padding: 20px !important;
+  transform: translateX(-50%);
 }
 
 .table {
@@ -16,23 +22,13 @@
   border-radius: 5px;
 }
 
-
-.filter input {
-  width: 200px;
-}
-
-.filter-wrapper label {
-  margin-left: 5px;
-}
-
-.table td {
+.table td,
+.table th {
   padding: 0.8em;
-  min-width: 100px;
   transition: background-color, color 0.2s ease-in-out;
 }
 
 .table tr {
-
 }
 
 ::ng-deep .cdk-drag-preview td {
@@ -54,6 +50,10 @@
   color: white;
 }
 
+.placeholder {
+  text-align: center;
+}
+
 ::ng-deep .cdk-drag-preview {
   height: 43px !important;
   position: relative;
@@ -67,11 +67,11 @@
   }
   100% {
     left: 50%;
-
   }
 }
-.icon{
-  border-radius: 50%;
+
+.icon {
+  border-radius: 5px;
   padding: 5px;
   text-align: center;
   font-size: 23px;
@@ -89,7 +89,6 @@
 .row:hover td:last-child {
   border-radius: 0 5px 5px 0;
 }
-
 
 .cdk-drag-animating {
   transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);

@@ -1,4 +1,4 @@
-import {Injectable} from '@angular/core';
+import { Injectable } from '@angular/core';
 
 @Injectable({
   providedIn: 'root',
@@ -13,7 +13,7 @@ export class AdminStatusService {
 
   constructor() {
     this._isOpen = false;
-    this._name = 'Admin'
+    this._name = 'Admin';
   }
 
   get isOpen(): boolean {
@@ -21,8 +21,7 @@ export class AdminStatusService {
   }
 
   open(name?: string): void {
-    if (name)
-      this._name = name;
+    if (name) this._name = name;
     this._isOpen = true;
   }
 
