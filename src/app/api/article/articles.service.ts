@@ -11,7 +11,7 @@ export class ArticlesService {
   private readonly options: any;
 
   constructor(private http: HttpClient) {
-    this.url = '/api/controllers/article/ArticlesController.php';
+    this.url = 'http://lubossremanak.com.d.r2.wbsprt.com/api/controllers/article/ArticlesController.php';
     this.options = {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
