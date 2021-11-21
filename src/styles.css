@@ -176,8 +176,8 @@ label {
 .submit-container {
   width: 100%;
   display: flex;
-  justify-content: flex-start;
-  margin-top: 10px;
+  justify-content: center;
+  margin:10px 0;
 }
 
 .submit-button {

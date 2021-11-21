@@ -1,10 +1,10 @@
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { ImageTile } from '../../shared/image-tile/model/image-tile';
-import { Article } from '../../api/article/model/article';
-import { HttpEvent } from '@angular/common/http';
-import { ArticleManageService } from '../service/article-manage.service';
-import { ArticlesService } from '../../api/article/articles.service';
+import {ChangeDetectorRef, Component, OnInit} from '@angular/core';
+import {ActivatedRoute} from '@angular/router';
+import {ImageTile} from '../../shared/image-tile/model/image-tile';
+import {Article} from '../../api/article/model/article';
+import {HttpEvent} from '@angular/common/http';
+import {ArticleManageService} from '../service/article-manage.service';
+import {ArticlesService} from '../../api/article/articles.service';
 
 @Component({
   selector: 'app-article-pattern',
@@ -17,7 +17,8 @@ export class ArticlePatternComponent implements OnInit {
   constructor(
     private articleService: ArticlesService,
     private articlesManageService: ArticleManageService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private changeDetector:ChangeDetectorRef
   ) {
     this._linkedArticles = [];
     this.route.data.subscribe(this.handleArticles);
@@ -50,12 +51,16 @@ export class ArticlePatternComponent implements OnInit {
 
   handleLinkedArticles = (articleResponse: HttpEvent<Article>): void => {
     const article: Article = articleResponse as unknown as Article;
-    this.linkedArticles.push({
-      about: article.about,
-      articlePath: article.title,
-      image: this.articlesManageService.getRootImage(article)!,
-      title: article.title,
-    });
+    if (article.title) {
+      this.linkedArticles.push({
+        about: article.about,
+        articlePath: article.title,
+        image: this.articlesManageService.getRootImage(article)!,
+        title: article.title,
+      });
+      this.changeDetector.detectChanges();
+    }
+
   };
 
   private handleArticles = (data: any): void => {

@@ -33,7 +33,6 @@ export class ArticlesService {
   }
 
   editArticle(article: Article): Observable<HttpEvent<string>> {
-    console.log(article.images)
     return this.http.put<string>(this.url, article, this.options);
   }
 

@@ -1,14 +1,19 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, HostListener, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {Article} from '../../../api/article/model/article';
 import {ArticlesService} from '../../../api/article/articles.service';
 import {ImageManagerService} from './image-manager/service/image-manager.service';
+import {fadeInDownOnEnterAnimation, fadeOutUpOnLeaveAnimation} from "angular-animations";
 
 @Component({
   selector: 'app-article-add',
   templateUrl: './article-add.component.html',
   styleUrls: ['./article-add.component.css'],
+  animations: [
+    fadeInDownOnEnterAnimation({anchor: 'enter'}),
+    fadeOutUpOnLeaveAnimation({anchor: 'leave'}),
+  ]
 })
 
 
@@ -25,6 +30,7 @@ export class ArticleAddComponent implements OnInit {
     private router: Router,
     private imageService: ImageManagerService
   ) {
+    this.disabledSubmit = false;
     this.articlesService.getArticles().subscribe(this.handleArticles);
     const routeParams = this.route.snapshot.paramMap;
     const articleTitle = routeParams.get('title');
@@ -49,16 +55,18 @@ export class ArticleAddComponent implements OnInit {
     return name.invalid && (name.dirty || name.touched);
   }
 
-  updateArticle(data: FormGroup) {
+  updateArticle() {
+    const data=this.data;
     if (!data.valid) {
       data.markAllAsTouched();
       return;
     }
     const article = this.createArticle(data);
+    this.disabledSubmit = true;
     if (this.type === 'Add') {
       this.articlesService
-        .createArticle(article)
-        .subscribe(this.handleChangedArticle);
+          .createArticle(article)
+          .subscribe(this.handleChangedArticle);
     }
     if (this.type === 'Edit') {
       this.articlesService
@@ -119,5 +127,12 @@ export class ArticleAddComponent implements OnInit {
   private handleChangedArticle = (): void => {
     this.router.navigate(['admin/cms']).then();
   };
+  disabledSubmit: boolean;
+
+
+  @HostListener('window:beforeunload')
+  async ngOnDestroy(event: any) {
+
+  }
 
 }

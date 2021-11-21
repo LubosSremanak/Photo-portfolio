@@ -15,7 +15,7 @@
     <span class="content">{{ imageTile?.about }}</span>
   </div>
   <img
-    *ngIf="imageTile"
+    *ngIf="imageTile?.image"
     [alt]="imageTile?.title"
     [src]="imageTile?.image?.path"
     loading="eager"

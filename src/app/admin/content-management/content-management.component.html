@@ -11,7 +11,7 @@
 
     <ng-container matColumnDef="title">
       <th mat-header-cell *matHeaderCellDef>Title</th>
-      <td mat-cell *matCellDef="let row">{{ row.title | textOverflow }}</td>
+      <td mat-cell class="bold" *matCellDef="let row">{{ row.title | textOverflow }}</td>
     </ng-container>
 
     <ng-container matColumnDef="about">
@@ -67,7 +67,7 @@
 
     <tr class="placeholder" *matNoDataRow>
       <td colspan="6">
-        Add article by clicking on
+        Add an article by clicking the
         <mat-icon class="button-dark button-dark-no-hover fab">add</mat-icon>
       </td>
     </tr>

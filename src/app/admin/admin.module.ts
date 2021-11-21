@@ -25,6 +25,7 @@ import { UserSettingsComponent } from './content-management/user-settings/user-s
 import { PasswordChangeComponent } from './content-management/user-settings/password-change/password-change.component';
 import { FieldComponent } from './content-management/user-settings/password-change/field/field.component';
 import {MatSnackBarModule} from "@angular/material/snack-bar";
+import { FormatButtonNamePipe } from './content-management/article-add/pipe/format-button-name.pipe';
 
 @NgModule({
   declarations: [
@@ -38,6 +39,7 @@ import {MatSnackBarModule} from "@angular/material/snack-bar";
     UserSettingsComponent,
     PasswordChangeComponent,
     FieldComponent,
+    FormatButtonNamePipe,
   ],
     imports: [
         CommonModule,
