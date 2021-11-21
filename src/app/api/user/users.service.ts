@@ -12,7 +12,7 @@ export class UsersService {
   private readonly options: any;
 
   constructor(private http: HttpClient) {
-    this.url = 'http://lubossremanak.com.d.r2.wbsprt.com/api/controllers/user/LoginController.php';
+    this.url = '/api/controllers/user/LoginController.php';
     this.options = {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
