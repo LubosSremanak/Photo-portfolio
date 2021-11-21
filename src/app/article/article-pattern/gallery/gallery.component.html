@@ -3,7 +3,7 @@
     *ngFor="let image of article?.images; let i = index"
     class="image-wrapper flex-row"
   >
-    <img (click)="openSlideShow(i)" [src]="image.path" alt="" />
+    <img (click)="openSlideShow(i)" [src]="'https://lubossremanak.com.d.r2.wbsprt.com'+image.path" alt="" />
   </div>
 </div>
 <swiper
@@ -15,7 +15,7 @@
   class="slideshow"
 >
   <ng-template *ngFor="let image of article?.images" swiperSlide>
-    <img [src]="image.path" alt=""
+    <img [src]="'https://lubossremanak.com.d.r2.wbsprt.com'+image.path" alt=""
   /></ng-template>
 </swiper>
 <mat-icon (click)="openSlider = false" *ngIf="openSlider" class="close-icon"
