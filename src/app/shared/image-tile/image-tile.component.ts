@@ -11,8 +11,8 @@ import {
   templateUrl: './image-tile.component.html',
   styleUrls: ['./image-tile.component.css'],
   animations: [
-    fadeInOnEnterAnimation({ duration: 300 }),
-    fadeOutOnLeaveAnimation({ duration: 300 }),
+    fadeInOnEnterAnimation({ duration: 200 }),
+    fadeOutOnLeaveAnimation({ duration: 200 }),
   ],
 })
 export class ImageTileComponent implements OnInit {

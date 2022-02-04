@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class EmailService {
-  readonly host: string = 'https://formspree.io/f/mgerlvnl';
+  readonly host: string = 'https://formspree.io/f/xjvlvzjo';
 
   constructor(private httpClient: HttpClient) {}
 

@@ -148,10 +148,19 @@
     align-items: center;
   }
 
+  .social-media, .links {
+    row-gap: 10px;
+  }
+
+  .links {
+    margin-bottom: 10px;
+  }
+
   .social-media {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+
   }
 
   .instagram {

@@ -12,7 +12,7 @@ import {ArticlesService} from '../../api/article/articles.service';
   styleUrls: ['./article-pattern.component.css'],
 })
 export class ArticlePatternComponent implements OnInit {
-  private readonly _linkedArticles: ImageTile[];
+  private _linkedArticles: ImageTile[];
 
   constructor(
     private articleService: ArticlesService,
@@ -21,7 +21,6 @@ export class ArticlePatternComponent implements OnInit {
     private changeDetector:ChangeDetectorRef
   ) {
     this._linkedArticles = [];
-    this.route.data.subscribe(this.handleArticles);
   }
 
   private _article: Article | undefined;
@@ -35,18 +34,21 @@ export class ArticlePatternComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.getLinkedArticles();
+    this.route.data.subscribe(this.handleArticles);
   }
 
   getLinkedArticles(): void {
-    const articleTitle1: string | null = this._article?.nextArticleTitle1!;
-    const articleTitle2: string | null = this._article?.nextArticleTitle2!;
-    this.articleService
-      .getArticle(articleTitle1)
-      .subscribe(this.handleLinkedArticles);
-    this.articleService
-      .getArticle(articleTitle2)
-      .subscribe(this.handleLinkedArticles);
+    const articleTitle1 = this._article?.nextArticleTitle1;
+    const articleTitle2 = this._article?.nextArticleTitle2;
+    if (articleTitle1 && articleTitle2) {
+      this.articleService
+        .getArticle(articleTitle1)
+        .subscribe(this.handleLinkedArticles);
+      this.articleService
+        .getArticle(articleTitle2)
+        .subscribe(this.handleLinkedArticles);
+    }
+
   }
 
   handleLinkedArticles = (articleResponse: HttpEvent<Article>): void => {
@@ -65,5 +67,7 @@ export class ArticlePatternComponent implements OnInit {
 
   private handleArticles = (data: any): void => {
     this._article = data.article;
+    this._linkedArticles = [];
+    this.getLinkedArticles();
   };
 }

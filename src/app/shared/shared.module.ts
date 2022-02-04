@@ -9,6 +9,7 @@ import { ArticleFooterComponent } from './article-footer/article-footer.componen
 import { DialogComponent } from './dialog/dialog.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { NgxImageCompressService } from 'ngx-image-compress';
+import {NgxScrollTopModule} from "ngx-scrolltop";
 
 @NgModule({
   declarations: [
@@ -17,7 +18,7 @@ import { NgxImageCompressService } from 'ngx-image-compress';
     ArticleFooterComponent,
     DialogComponent,
   ],
-  imports: [CommonModule, MatIconModule, MatDialogModule],
+    imports: [CommonModule, MatIconModule, MatDialogModule, NgxScrollTopModule],
   exports: [
     MatIconModule,
     LottieModule,

@@ -9,11 +9,12 @@ import { ImageTile } from '../image-tile/model/image-tile';
 export class ArticleFooterComponent implements OnInit {
   @Input() articlesToSee: ImageTile[] | undefined;
 
-  constructor() {}
+  constructor() {
+  }
 
   ngOnInit(): void {}
 
   scrollToTop(): void {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+
   }
 }
